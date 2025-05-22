@@ -1,3 +1,4 @@
 .env
 backend/static
+backend/staticfiles
 db_data

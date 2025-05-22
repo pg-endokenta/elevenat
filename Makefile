@@ -42,16 +42,16 @@ generate-env-yaml:
 
 .PHONY gcp-build:
 gcp-build:
-	docker build -t asia-northeast1-docker.pkg.dev/$(PROJECT_ID)/$(REPOSITORY)/django-app -f ./docker/backend/Dockerfile.prod ./backend
+	docker build -t asia-northeast1-docker.pkg.dev/$(PROJECT_ID)/$(REPOSITORY)/elevenat-django-app -f ./docker/backend/Dockerfile.prod ./backend
 
 .PHONY gcp-push:
 gcp-push:
-	docker push asia-northeast1-docker.pkg.dev/$(PROJECT_ID)/$(REPOSITORY)/django-app
+	docker push asia-northeast1-docker.pkg.dev/$(PROJECT_ID)/$(REPOSITORY)/elevenat-django-app
 
 .PHONY: gcp-deploy
 gcp-deploy:
-	gcloud run deploy django-app \
-	--image asia-northeast1-docker.pkg.dev/$(PROJECT_ID)/$(REPOSITORY)/django-app \
+	gcloud run deploy elevenat-django-app \
+	--image asia-northeast1-docker.pkg.dev/$(PROJECT_ID)/$(REPOSITORY)/elevenat-django-app \
 	--region asia-northeast1 \
 	--platform managed \
 	--allow-unauthenticated \

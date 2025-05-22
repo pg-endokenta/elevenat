@@ -88,6 +88,7 @@ class PresenceStatsView(APIView):
             PresenceDetection.objects
             .annotate(minute=TruncMinute('detected_at'))
             .values('user_id', 'minute')
+            .distinct()
             .order_by()
         )
 
