@@ -1,0 +1,16 @@
+<h2>あなたの登録端末</h2>
+<a href="{% url 'device_create' %}">＋ 新しい端末を追加</a>
+
+<ul>
+  {% for device in devices %}
+    <li>
+      {{ device.name }} - {{ device.mac_address }}
+      [<a href="{% url 'device_update' device.id %}">編集</a>]
+      [<a href="{% url 'device_delete' device.id %}">削除</a>]
+    </li>
+  {% empty %}
+    <li>登録された端末はありません。</li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'home' %}">戻る</a>

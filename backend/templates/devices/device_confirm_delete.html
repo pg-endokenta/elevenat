@@ -1,0 +1,8 @@
+<h2>本当にこの端末を削除しますか？</h2>
+<p>{{ device.name }} - {{ device.mac_address }}</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">削除</button>
+  <a href="{% url 'device_list' %}">キャンセル</a>
+</form>

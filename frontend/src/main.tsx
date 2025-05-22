@@ -2,15 +2,17 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from "react-router";
 import './index.css'
-import App from './App.tsx'
-import { UserDetail } from './pages/UserDetail';
+// import { UserDetail } from './pages/UserDetail';
+// import { Room } from './pages/Room.tsx';
+import PresenceStats from './pages/PresenceStats.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/user/:id" element={<UserDetail />} />
+        {/* <Route path="/frontend/room" element={<Room />} /> */}
+        <Route path="/frontend/presence-stats" element={<PresenceStats />} />
+        {/* <Route path="/user/:id" element={<UserDetail />} /> */}
       </Routes>
     </BrowserRouter>
   </StrictMode>,

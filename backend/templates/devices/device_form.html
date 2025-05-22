@@ -1,0 +1,10 @@
+<h2>端末フォーム</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">保存</button>
+</form>
+
+<p> Name：登録する人が複数登録するときに識別するための値．何でも良い．例：スマホ，PC</p>
+<p> MACアドレス：端末のMACアドレス．全て半角．例：00:1A:2B:3C:4D:5E</p>
+<a href="{% url 'device_list' %}">戻る</a>

@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+
+from .models import PresenceDetection
+
+@admin.register(PresenceDetection)
+class PresenceDetectionAdmin(admin.ModelAdmin):
+    list_display = ('user', 'device', 'detected_at')

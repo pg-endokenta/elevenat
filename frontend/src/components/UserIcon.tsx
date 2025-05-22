@@ -31,7 +31,8 @@ export const UserIcon: React.FC<Props> = ({ user, now }) => {
       onClick={handleClick}
       title={`Last seen: ${user.lastSeen.toLocaleTimeString()}`}
     >
-      {user.name[0]}
+      {/* {user.name[0]} */}
+      {user.name.length < 7 ? user.name : user.name.slice(0, 7) + '...'}
     </div>
   );
 };

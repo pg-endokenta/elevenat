@@ -1,6 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+// __dirname 相当を定義（ESM対応）
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -8,4 +14,20 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  build: {
+    outDir: '../backend/static/frontend',
+    emptyOutDir: true,
+    manifest: true,
+    rollupOptions: {
+      input: '/index.html',
+    },
+  },
+  // npm run dev で起動したいとき
+  // base: '/',
+  base: '/static/frontend/',
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
 })
